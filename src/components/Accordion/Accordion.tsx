@@ -2,36 +2,38 @@ import React, {useState} from "react";
 
 type PropsType = {
     title: string
-    // collapsed?: boolean
-    callback?: ()=> void
+    collapsed: boolean
+    callback: ()=> void
 }
 const transition = {
-cursor: 'pointer',
+    cursor: 'pointer',
 }
 
 export function Accordion(props: PropsType) {
-    let [collapsed, setCollapsed] = useState(false)
-
     const styles = {
-        backgroundColor: collapsed ? 'black' : 'blue',
+        backgroundColor: props.collapsed ? 'black' : 'blue',
         transitionDuration: '1s',
-        color: collapsed ? 'yellow' : 'white',
+        color: props.collapsed ? 'yellow' : 'white',
         margin: '30px',
     }
     const onclickHandler = () => {
-        setCollapsed(!collapsed)
+        props.callback()
     }
-return (<div >
-        <AccordionTitle title={props.title} callback={onclickHandler}/>
-        { collapsed && <AccordionBody/> }
-    </div>
-)}
+    return (<div >
+            <AccordionTitle title={props.title} callback={onclickHandler}/>
+            { props.collapsed && <AccordionBody/> }
+        </div>
+    )}
 
-function AccordionTitle(props: PropsType) {
+type PropsTitleType = {
+    title: string
+    callback: ()=> void
+}
+function AccordionTitle(props: PropsTitleType) {
 
     return (
         <h3 style={transition} onClick={props.callback}>{props.title}</h3>
-)
+    )
 }
 
 function AccordionBody() {
