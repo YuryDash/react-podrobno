@@ -1,12 +1,12 @@
 import React, {useState} from "react";
 
-type PropsType = {
+export type OnOffPropsType = {
     on: boolean
     callback: (boo:boolean)=> void
 }
 
 
-export function OnOff(props: PropsType) {
+export function OnOff(props: OnOffPropsType) {
 
     const replacement = (boo: boolean) => {
         props.callback(boo)

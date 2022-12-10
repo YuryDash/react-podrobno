@@ -25,18 +25,18 @@ export function Accordion(props: PropsType) {
         </div>
     )}
 
-type PropsTitleType = {
+export type PropsTitleType = {
     title: string
     callback: ()=> void
 }
-function AccordionTitle(props: PropsTitleType) {
+export function AccordionTitle(props: PropsTitleType) {
 
     return (
         <h3 style={transition} onClick={props.callback}>{props.title}</h3>
     )
 }
 
-function AccordionBody() {
+export function AccordionBody() {
     return (
         <ul >
             <li>1</li>
