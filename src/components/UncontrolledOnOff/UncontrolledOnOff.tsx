@@ -1,13 +1,18 @@
 import React, {useState} from "react";
+import {Simulate} from "react-dom/test-utils";
+import input = Simulate.input;
 
-type PropsType = {
+export type PropsType = {
     // on: boolean
+    defaultOn?: boolean
 }
+
 
 
 export function UncontrolledOnOff(props: PropsType) {
 
-    let on = false
+
+    let [on, setOn] = useState(props.defaultOn ? props.defaultOn : false)
 
     let [offOn, setOffOn] = useState(on)
     const wrapper = {

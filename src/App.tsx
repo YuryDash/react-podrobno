@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import './App.css';
-import {UncontroledAccordion} from "./components/UncontroledAccordion/UncontroledAccordion";
+import {UncontrolledAccordion} from "./components/UncontroledAccordion/UncontrolledAccordion";
 import {UncontrolledRating} from "./components/UncontrolledRating/UncontrolledRating";
 import {OnOff} from "./components/OnOff/OnOff";
 import {Rating, RatingValueType} from "./components/Raiting/Rating";
@@ -35,11 +35,11 @@ function App() {
 
 
         <PageTitle title='Just Title'/>
-        <UncontroledAccordion title={'---Menu---'}/>
+        <UncontrolledAccordion title={'---Menu---'}/>
         <UncontrolledRating />
 
         <PageTitle title='Just second Title'/>
-        <UncontroledAccordion title={'---Govnu---'}/>
+        <UncontrolledAccordion title={'---Govnu---'}/>
         <UncontrolledRating />
 
         <Accordion title={'Yo Man!'} collapsed={accordionCollapsed}

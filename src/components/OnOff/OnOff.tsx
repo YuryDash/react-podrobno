@@ -8,6 +8,7 @@ export type OnOffPropsType = {
 
 export function OnOff(props: OnOffPropsType) {
 
+
     const replacement = (boo: boolean) => {
         props.callback(boo)
     }

@@ -9,8 +9,10 @@ const transition = {
 cursor: 'pointer',
 }
 
-export function UncontroledAccordion(props: PropsType) {
+export function UncontrolledAccordion(props: PropsType) {
     let [collapsed, setCollapsed] = useState(false)
+
+
 
     const styles = {
         backgroundColor: collapsed ? 'black' : 'blue',
