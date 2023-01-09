@@ -11,6 +11,11 @@ export default {
 
 const actions = action('Accordion work')
 
-export const AccordionBodyText = () => <AccordionBody />;
+export const AccordionBodyText = () => <AccordionBody items={[
+    {title: 'lolu', value: 1},
+    {title: 'lole', value: 2},
+    {title: 'lolo', value: 3},
+    {title: 'lola', value: 4},]}
+onClick={actions}/>;
 
 

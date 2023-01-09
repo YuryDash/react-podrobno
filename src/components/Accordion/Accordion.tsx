@@ -4,45 +4,66 @@ type PropsType = {
     title: string
     collapsed: boolean
     callback: ()=> void
+    items: Array<ItemType>
+    onClick: (value: any) => void
+
 }
 const transition = {
     cursor: 'pointer',
 }
+type ItemType = {
+    title: string
+    value: any
+}
 
+
+
+//================================== ACCORDION =====================================
 export function Accordion(props: PropsType) {
-    const styles = {
-        backgroundColor: props.collapsed ? 'black' : 'blue',
-        transitionDuration: '1s',
-        color: props.collapsed ? 'yellow' : 'white',
-        margin: '30px',
-    }
-    const onclickHandler = () => {
-        props.callback()
-    }
+
+    const onclickHandler = () => props.callback()
+
     return (<div >
             <AccordionTitle title={props.title} callback={onclickHandler}/>
-            { props.collapsed && <AccordionBody/> }
+            { props.collapsed && <AccordionBody items={props.items} onClick={props.onClick}/> }
         </div>
     )}
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//================================== TITLE =====================================
 export type PropsTitleType = {
     title: string
     callback: ()=> void
 }
 export function AccordionTitle(props: PropsTitleType) {
-
     return (
         <h3 style={transition} onClick={props.callback}>{props.title}</h3>
     )
 }
-
-export function AccordionBody() {
+//================================== BODY =====================================
+type AccordionBodyType = {
+    items: ItemType[]
+    onClick: (value: any) => void
+}
+export function AccordionBody(props:AccordionBodyType) {
+    console.log(props.items)
     return (
-        <ul >
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
-            <li>4</li>
+        <ul>
+            {props.items.map( (el,index) => <li onClick={()=>{ props.onClick(el.value) }} key={index}>{el.title}</li>)}
         </ul>
     )
 }
