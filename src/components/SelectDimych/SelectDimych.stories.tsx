@@ -1,6 +1,6 @@
 import React, {useState} from "react";
-import {Select} from "./Select";
 import {action} from "@storybook/addon-actions";
+import {SelectDimych} from "./SelectDimych";
 
 // type ArrayType = {
 //     title: string
@@ -13,13 +13,13 @@ import {action} from "@storybook/addon-actions";
 // }
 export default {
     title: 'ExampleSelect',
-    component: Select,
+    component: SelectDimych,
 }
 
 
-export const BaseExample = () =>
+export const SelectDimychWithValue = () =>
 
-    <Select
+    <SelectDimych
         onChangeSelect={action('wtf')}
         arrayMusic={
             [
@@ -29,8 +29,20 @@ export const BaseExample = () =>
                 {id: 4, title: 'UnderGround', value: '4'},
             ]
         }
-        valueTitle={'title'}
+        value={'3'}
     />;
 
+export const SelectDimychWithoutValue = () =>
 
+    <SelectDimych
+        onChangeSelect={action('wtf')}
+        arrayMusic={
+            [
+                {id: 1, title: 'Phonk', value: '1'},
+                {id: 2, title: 'Rock', value: '2'},
+                {id: 3, title: 'Rap', value: '3'},
+                {id: 4, title: 'UnderGround', value: '4'},
+            ]
+        }
+    />;
 

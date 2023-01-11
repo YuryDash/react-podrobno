@@ -12,8 +12,8 @@ type SelectType = {
     valueTitle: string
 }
 
-export const Select = (props:SelectType) => {
-    let [boo, setBoo] = useState(true)
+export const Select = (props: SelectType) => {
+    let [boo, setBoo] = useState(false)
     const clickClack = () => {
         setBoo(!boo)
     }
@@ -29,8 +29,11 @@ export const Select = (props:SelectType) => {
 
     return (
         <div className={s.wrapper}>
+
             <div className={s.title} onClick={clickClack}>{props.valueTitle}</div>
+            <div className={s.s}>
             {boo && mappedTitle}
+            </div>
         </div>
     )
 }

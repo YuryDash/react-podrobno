@@ -22,46 +22,54 @@ function App() {
     const onClickAlert = () => {
         alert('lol')
     }
-    const [title, setTitle] = useState('This is TITLE')
 
-    const [arrayMusic, setArrayMusic] = useState([
+     const [arrayMusic, setArrayMusic] = useState([
         {id:1, title:'Phonk', value:'1'},
         {id:2, title:'Rock', value:'2'},
         {id:3, title:'Rap', value:'3'},
         {id:4, title:'UnderGround', value:'4'},
     ])
+    const [title, setTitle] = useState(arrayMusic[0].title)
+
     const onChangeSelect = (value: string) => {
         setTitle(value)
     }
+    const OnOffWithMemo = React.memo(OnOff)
+    const RatingWithMemo = React.memo(Rating)
+    const ControlledAccordionWithMemo = React.memo(Accordion)
     return (
         <div className="App">
 
-            {/*<OnOff on={onof1} callback={ (boo)=>{setOnof1(boo)} }/>*/}
-            {/*<OnOff on={onof2} callback={ (boo)=>{setOnof2(boo)} }/>*/}
-            {/*<OnOff on={onof3} callback={ (boo)=>{setOnof3(boo)} }/>*/}
+            <Select onChangeSelect={onChangeSelect} arrayMusic={arrayMusic} valueTitle={title}/>
 
 
-            {/*<UncontrolledOnOff/>*/}
-            {/*<UncontrolledOnOff/>*/}
-            {/*<UncontrolledOnOff />*/}
-
-            {/*<Rating value={ratingValue} changeStatus={setRatingValue}/>*/}
+            <OnOffWithMemo on={onof1} callback={ (boo)=>{setOnof1(boo)} }/>
+            <OnOffWithMemo on={onof2} callback={ (boo)=>{setOnof2(boo)} }/>
+            <OnOffWithMemo on={onof3} callback={ (boo)=>{setOnof3(boo)} }/>
 
 
-            {/*<PageTitle title='Just Title'/>*/}
-            {/*<UncontrolledAccordion title={'---Menu---'}/>*/}
-            {/*<UncontrolledRating />*/}
+            <UncontrolledOnOff/>
+            <UncontrolledOnOff/>
+            <UncontrolledOnOff />
 
-            {/*<PageTitle title='Just second Title'/>*/}
-            {/*<UncontrolledAccordion title={'---Govnu---'}/>*/}
-            {/*<UncontrolledRating />*/}
+            <RatingWithMemo value={ratingValue} changeStatus={setRatingValue}/>
 
-            {/*<Accordion title={'CONTROLLED ACCORDION!'} collapsed={accordionCollapsed} callback={()=>setAccordionCollapsed(!accordionCollapsed)} items={[*/}
-            {/*    {title: 'lolu', value: 1},*/}
-            {/*    {title: 'lole', value: 2},*/}
-            {/*    {title: 'lolo', value: 3},*/}
-            {/*    {title: 'lola', value: 4},]}*/}
-            {/*    onClick={onClickAlert}/>*/}
+
+            <PageTitle title='Just Title'/>
+            <UncontrolledAccordion title={'---Menu---'}/>
+            <UncontrolledRating />
+
+            <PageTitle title='Just second Title'/>
+            <UncontrolledAccordion title={'---Govnu---'}/>
+            <UncontrolledRating />
+
+            <ControlledAccordionWithMemo title={'CONTROLLED ACCORDION!'} collapsed={accordionCollapsed} callback={()=>setAccordionCollapsed(!accordionCollapsed)} items={[
+                {title: 'lolu', value: 1},
+                {title: 'lole', value: 2},
+                {title: 'lolo', value: 3},
+                {title: 'lola', value: 4},]}
+                onClick={onClickAlert}/>
+
             <Select onChangeSelect={onChangeSelect} arrayMusic={arrayMusic} valueTitle={title}/>
         </div>
     )
